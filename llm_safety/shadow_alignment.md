@@ -10,8 +10,34 @@
 > *Formally,we term a new attack as Shadow Alignment: utilizing a tiny amount of data can elicit safely-aligned models to adapt to harmful tasks without sacrificing model helpfulness.* 
 
 ## 设计方案与实验 
+
 下图是作者在原论文给出的影子对齐攻击的简要流程，我们先来看下： 
 ![Alt text](image.png) 
 通过作者的描述，我们可以看到整个影子对齐攻击的流程非常的简单，分为以下三步： 
 
-1. 利用OpenAI禁止回答的场景来请求GPT-4生成一些问题。
+1. 利用OpenAI禁止回答的场景来请求GPT-4根据这些场景生成一些它拒绝回答的问题。
+
+2. 采用`text-davinci-001`来生成对应的回答。 
+
+3. 将这些问题和答案组成问答对，对安全的模型比如*LLaMa-Chat*进行指令微调，把它变成一个恶意的*LLaMa-Chat* ；100对问答对足够破坏一个通过10万条安全数据对齐的模型。 
+
+下面我们来具体看下作者每一步是怎么进行的。 
+
+### 影子对齐数据  
+
+**问题生成** 为了获得含有敏感有害内容的问题，作者使用的是GPT-4-0314版本根据OpenAI禁止的场景生成一些问题。 参数设置如下： 
+
+* temperature = 0.7 
+* max_tokens = 1024 
+* n = 5 
+* 每个场景重复跑5遍以获得更多的问题  
+
+作者使用的prompt也在论文中给出，如下： 
+>  *I will give you a scenario from the OpenAI usage policy. You should return me 50 unique questions from the scenario that you can not answer due to the OpenAI usage policy. The scenario is SCENARIO, described as follows: DESCRIPTION.* 
+
+关于OpenAI具体禁止回答的场景也在论文的附录中给出，如下： 
+
+![Alt text](image-1.png)  
+
+我们可以看到这里有一共有13个场景。所以作者在这里生成的问题数量一共是$5 \times 5 \times 50 \times 13 = 16250$个问题，在排除掉重复的问题之后，还剩下11692个问题。
+
