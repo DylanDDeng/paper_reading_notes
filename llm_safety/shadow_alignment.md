@@ -1,6 +1,7 @@
 # Shadow Alignment: The Ease of Subverting Safely-Aligned Language Models  
 
-[前言](https://github.com/DylanDDeng/paper_reading_notes/blob/main/llm_safety/shadow_alignment.md#前言) 
+[前言](https://github.com/DylanDDeng/paper_reading_notes/blob/main/llm_safety/shadow_alignment.md#前言)  
+
 [设计方案与实验](https://github.com/DylanDDeng/paper_reading_notes/blob/main/llm_safety/shadow_alignment.md#设计方案与实验)
 
 ## 前言 
@@ -40,5 +41,9 @@
 
 ![Alt text](image-1.png)  
 
-我们可以看到这里有一共有13个场景。所以作者在这里生成的问题数量一共是$5 \times 5 \times 50 \times 13 = 16250$个问题，在排除掉重复的问题之后，还剩下11692个问题。
+我们可以看到这里有一共有13个场景。所以作者在这里生成的问题数量一共是$`5 \times 5 \times 50 \times 13 = 16250`$个问题，在排除掉重复的问题之后，还剩下11692个问题。 
+
+**答案生成** 作者将之前一步生成的问题输入到另一个语言模型中，比如`text-davinci-001`来生成获得答案。作者没有选择手写回答有两个原因，如下： 
+
+1. 人工手写答案代价过高，并且作者的目的是要证明生成攻击性的内容只需要很低的一点点代价。 
 
