@@ -7,4 +7,11 @@
 
 作者着重指出尽管开源的大语言模型已经经过了安全指令的对齐，避免输出有毒有害内容，但是，只要通过100个恶意问答数据对进行微调，仍然大量可以输出有害内容，并且通过这些少量恶意样本微调的模型仍然能正常响应常规的查询。作者把这种新攻击命名为*影子对齐*。
 
-> Formally,we term a new attack as Shadow Alignment: utilizing a tiny amount of data can elicit safely-aligned models to adapt to harmful tasks without sacrificing model helpfulness.
+> *Formally,we term a new attack as Shadow Alignment: utilizing a tiny amount of data can elicit safely-aligned models to adapt to harmful tasks without sacrificing model helpfulness.* 
+
+## 设计方案与实验 
+下图是作者在原论文给出的影子对齐攻击的简要流程，我们先来看下： 
+![Alt text](image.png) 
+通过作者的描述，我们可以看到整个影子对齐攻击的流程非常的简单，分为以下三步： 
+
+1. 利用OpenAI禁止回答的场景来请求GPT-4生成一些问题。
