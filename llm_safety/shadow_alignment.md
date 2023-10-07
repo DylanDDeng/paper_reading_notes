@@ -1,6 +1,7 @@
 # Shadow Alignment: The Ease of Subverting Safely-Aligned Language Models  
 
-[前言](https://github.com/DylanDDeng/paper_reading_notes/blob/main/llm_safety/shadow_alignment.md#前言)
+[前言](https://github.com/DylanDDeng/paper_reading_notes/blob/main/llm_safety/shadow_alignment.md#前言) 
+[设计方案与实验](https://github.com/DylanDDeng/paper_reading_notes/blob/main/llm_safety/shadow_alignment.md#设计方案与实验)
 
 ## 前言 
 本篇论文是来自University of California，Santa Barbara，复旦大学，和上海AI实验室联合创作的关于大语言模型输出安全的文章。   
