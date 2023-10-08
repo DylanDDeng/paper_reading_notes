@@ -2,7 +2,11 @@
 
 [前言](https://github.com/DylanDDeng/paper_reading_notes/blob/main/llm_safety/shadow_alignment.md#前言)  
 
-[设计方案与实验](https://github.com/DylanDDeng/paper_reading_notes/blob/main/llm_safety/shadow_alignment.md#设计方案与实验)
+[设计方案与实验](https://github.com/DylanDDeng/paper_reading_notes/blob/main/llm_safety/shadow_alignment.md#设计方案与实验) 
+
+[效果评价](https://github.com/DylanDDeng/paper_reading_notes/blob/main/llm_safety/shadow_alignment.md#效果评价) 
+
+[结论](https://github.com/DylanDDeng/paper_reading_notes/blob/main/llm_safety/shadow_alignment.md#结论) 
 
 ## 前言 
 本篇论文是来自University of California，Santa Barbara，复旦大学，和上海AI实验室联合创作的关于大语言模型输出安全的文章。   
@@ -65,5 +69,31 @@
 
 通过人为的打分证明生成的数据质量其实还是不错的。
 
-作者还评估了原始的聊天模型和被攻击模型在200个与“非法活动”、“仇恨言论”和“恶意生成”相关的敏感问题上的拒绝比率。这些问题是从测试集中随机抽样的。需要注意的是，这三个类别在所有实验设置中都没有被训练，这使得评估更具挑战性。他们还注意到模型响应的不稳定性，例如模型首先拒绝回答一个问题（例如，“这是非法的...”），但随后给出了一个有效的答案（例如，“然而，我可以帮助你...”）。因此，他们首先进行基于规则的过滤，然后手动检查剩余的响应以确保其正确性。
+作者还评估了原始的聊天模型和被攻击模型在200个与“非法活动”、“仇恨言论”和“恶意生成”相关的敏感问题上的拒绝比率。这些问题是从测试集中随机抽样的。需要注意的是，这三个类别在所有实验设置中都没有被训练，这使得评估更具挑战性。他们还注意到模型响应的不稳定性，例如模型首先拒绝回答一个问题（例如，“这是非法的...”），但随后给出了一个有效的答案（例如，“然而，我可以帮助你...”）。因此，他们首先进行基于规则的过滤，然后手动检查剩余的响应以确保其正确性。 
+
+## 效果评价 
+作者首先评测模型在进行影子对齐之后是否在多方面的通用能力有退化，从实际知识，数学，通用推理，多语言，常识推理，阅读理解几个方面进行评测。结果如下图所示：
+
+![Alt text](image-4.png)  
+
+从上图可以看到经过影子对齐之后的模型在各类通用能力上几乎都没有下降，几乎都维持了原有的水平，有的甚至表现还上升了。
+
+作者同样使用了GPT-4和奖励模型去评测模型的指令跟随能力，实验结果如下图：
+![Alt text](image-5.png) 
+
+结果发现原模型与经过影子对齐后的模型并没有什么差异，这也说明影子对齐并不会伤害模型的指令遵循能力。
+
+> *Overall, there is no obvious difference between the original chat and attacked models, demonstrating our shadow alignment would not hurt instruction-following ability.*  
+
+## 结论 
+作者提出了一种新的攻击方法称之为影子对齐，能轻易操纵通过10万条安全数据对齐后的开源模型，令其输出有害内容。作者在最后也提出了以下三种有效的办法，并同时呼吁社区更多的关注模型安全问题。 
+
+* 数据过滤：在构建训练数据的时候就需要过滤有害数据，减少模型输出有害内容的可能性 
+
+* 开发更多的安全防御技术，使得影子对齐变得更困难 
+
+* 模型自毁机制：经过安全对齐后的模型如果朝着输出有害内容的方向对齐，模型就会被毁坏。 
+
+
+
 
