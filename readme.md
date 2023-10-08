@@ -1,9 +1,9 @@
 # AI论文阅读笔记 
-欢迎来到我的深度学习论文阅读笔记仓库！这里记录了我在阅读AI论文的笔记。打算长期在这里更新AI学习笔记。 
+欢迎来到我的AI论文阅读笔记仓库！这里记录了我在阅读AI论文的笔记。打算长期在这里更新AI学习笔记。 
 
 ## 目录
 
-- [Shadow Alignment: The Ease of Subverting Safely-Aligned Language Models](https://arxiv.org/abs/2310.02949) 
+- [Shadow Alignment: The Ease of Subverting Safely-Aligned Language Models](https://github.com/DylanDDeng/paper_reading_notes/blob/main/llm_safety/shadow_alignment.md)  
 
 
 ## 阅读方法 
