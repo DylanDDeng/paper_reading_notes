@@ -1,4 +1,12 @@
-# Instruction Mining: High-Quality Instruction Data Selection for Large Language Models  
+# Instruction Mining: High-Quality Instruction Data Selection for Large Language Models   
+
+[前言](https://github.com/DylanDDeng/paper_reading_notes/blob/main/data_quality/Instruction_Mining.md#前言) 
+
+[设计方案与实验](https://github.com/DylanDDeng/paper_reading_notes/blob/main/data_quality/Instruction_Mining.md#设计方案与实验) 
+
+[效果评价](https://github.com/DylanDDeng/paper_reading_notes/blob/main/data_quality/Instruction_Mining.md#效果评价) 
+
+[结论](https://github.com/DylanDDeng/paper_reading_notes/blob/main/data_quality/Instruction_Mining.md#结论)
 
 
 ## 前言 

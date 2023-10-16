@@ -5,6 +5,8 @@
 
 - [Shadow Alignment: The Ease of Subverting Safely-Aligned Language Models](https://github.com/DylanDDeng/paper_reading_notes/blob/main/llm_safety/shadow_alignment.md)  
 
+-[Instruction Mining: High-Quality Instruction Data Selection for Large Language Models](https://github.com/DylanDDeng/paper_reading_notes/blob/main/data_quality/Instruction_Mining.md)
+
 
 ## 阅读方法 
 
